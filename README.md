@@ -1,4 +1,4 @@
-# HET 3.0 - SAT Hardness via Ricci Curvature
+# HET 3.1 - SAT Hardness via Ricci Curvature
 
 **A simple, testable hypothesis**:  
 The difficulty of SAT instances correlates with the Ricci curvature of their partial solution space.
