@@ -1,0 +1,23 @@
+# SATLIB (fáciles)
+uf50-01.cnf
+uf50-02.cnf
+uf50-03.cnf
+uf50-04.cnf
+uf50-05.cnf
+uf50-06.cnf
+uf50-07.cnf
+uf50-08.cnf
+uf50-09.cnf
+uf50-10.cnf
+
+# SAT-Comp 2023 (difíciles)
+smtlib-qfbv-aigs-ext_cont_300_1.cnf
+smtlib-qfbv-aigs-ext_cont_300_2.cnf
+smtlib-qfbv-aigs-ext_cont_300_3.cnf
+smtlib-qfbv-aigs-ext_cont_300_4.cnf
+smtlib-qfbv-aigs-ext_cont_300_5.cnf
+smtlib-qfbv-aigs-ext_cont_300_6.cnf
+smtlib-qfbv-aigs-ext_cont_300_7.cnf
+smtlib-qfbv-aigs-ext_cont_300_8.cnf
+smtlib-qfbv-aigs-ext_cont_300_9.cnf
+smtlib-qfbv-aigs-ext_cont_300_10.cnf
