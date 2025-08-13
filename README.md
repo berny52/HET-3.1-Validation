@@ -28,7 +28,7 @@ If you have 5 minutes and a SAT solver, I would be **very grateful** if you coul
 - or simply reply “tried it – [yes/no]”.
 
 No money, no pressure—just sharing a grain of sand for science.
-# HET 3.0 – SAT Hardness via Ricci Curvature
+# HET 3.1 – SAT Hardness via Ricci Curvature
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Language](https://img.shields.io/badge/Language-Python-blue.svg)
