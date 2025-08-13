@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# SAT datasets grandes (solo dejamos nombres en instances.txt)
+*.cnf
+*.gz
+*.tar
+benchmarks/
+
+# Entornos
+.env
+venv/
