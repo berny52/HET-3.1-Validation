@@ -21,6 +21,13 @@ Just run `HET3.py` on any SAT instance and share the HET3 value + solving time.
 Results → open a GitHub issue or email me.
 ## 📊 Hypothesis
 See [HYPOTHESIS.md](HYPOTHESIS.md) for the 1-page validation protocol.
+## 🤝 Call for Collaboration
+If you have 5 minutes and a SAT solver, I would be **very grateful** if you could:
+- run `HET3.py` on one hard + one easy instance,
+- post the HET3 value + solving time in a GitHub issue,
+- or simply reply “tried it – [yes/no]”.
+
+No money, no pressure—just sharing a grain of sand for science.
 
 ## 📬 Contact
 berny berny7147@gmail.com
