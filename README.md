@@ -19,6 +19,8 @@ The difficulty of SAT instances correlates with the Ricci curvature of their par
 
 Just run `HET3.py` on any SAT instance and share the HET3 value + solving time.  
 Results → open a GitHub issue or email me.
+## 📊 Hypothesis
+See [HYPOTHESIS.md](HYPOTHESIS.md) for the 1-page validation protocol.
 
 ## 📬 Contact
 berny berny7147@gmail.com
