@@ -28,6 +28,19 @@ If you have 5 minutes and a SAT solver, I would be **very grateful** if you coul
 - or simply reply “tried it – [yes/no]”.
 
 No money, no pressure—just sharing a grain of sand for science.
+# HET 3.0 – SAT Hardness via Ricci Curvature
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Language](https://img.shields.io/badge/Language-Python-blue.svg)
+![SAT](https://img.shields.io/badge/Topic-SAT-orange.svg)
+
+> **Hypothesis**: The discrete Ricci curvature of the partial-solution graph correlates inversely with SAT solving time.
+
+ 🚀 Quick Start
+
+```bash
+pip install networkx pysat GraphRicciCurvature
+python HET3.py uf50-01.cnf
 
 ## 📬 Contact
 berny berny7147@gmail.com
