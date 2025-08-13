@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "HET 3.0 – SAT Hardness via Ricci Curvature"
+message: "If you use this work, please cite it as below."
+type: software
+authors:
+  - family-names: "Alvarado"
+    given-names: "Bernardita"
+    email: "berny7147@gmail.com"
+repository-code: "https://github.com/berny52/HET-3.0-Validation"
+license: MIT
+date-released: 2025-08-14
+url: "https://github.com/berny52/HET-3.0-Validation"
