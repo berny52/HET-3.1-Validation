@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""
+HET3.1 – Fixed predictor for SAT hardness
+- WalkSAT sampling
+- Adaptive threshold (85th percentile)
+- Hamming ≤ 2 graph
+- Returns both mean and min curvature
+Usage: python HET3.1.py <instance.cnf>
+"""
+
+import sys
+import numpy as np
+import networkx as nx
+from pysat.formula import CNF
+from GraphRicciCurvature.OllivierRicci import OllivierRicci
+
+
+def sample_solutions(cnf, n_samples=500, steps=50):
+    """WalkSAT-lite: biased sampling toward high-sat regions."""
+    clauses = cnf.clauses
+    n = cnf.nv
+    total = len(clauses)
+    solutions = []
+    for _ in range(n_samples):
+        a = np.random.randint(0, 2, n)
+        for _ in range(steps):
+            unsat = [c for c in clauses
+                     if not any((lit > 0) == a[abs(lit) - 1] for lit in c)]
+            if not unsat:
+                break
+            c = unsat[np.random.randint(len(unsat))]
+            v = abs(c[np.random.randint(len(c))]) - 1
+            a[v] ^= 1
+        sat_ratio = sum(any((lit > 0) == a[abs(lit) - 1] for lit in c) for c in clauses) / total
+        solutions.append((tuple(a), sat_ratio))
+    return solutions
+
+
+def adaptive_threshold(solutions, percentile=85):
+    """Pick threshold as pct-th percentile of observed sat ratios."""
+    return np.percentile([r for _, r in solutions], percentile)
+
+
+def build_graph(valid, max_dist=2):
+    """Build graph with edges if Hamming distance ≤ max_dist."""
+    G = nx.Graph()
+    for a in valid:
+        G.add_node(a)
+    arr = np.array(valid)
+    for i, u in enumerate(arr):
+        for j, v in enumerate(arr[i + 1:], i + 1):
+            if np.sum(u != v) <= max_dist:
+                G.add_edge(tuple(u), tuple(v))
+    return G if G.number_of_edges() else None
+
+
+def curvature_stats(G):
+    """Compute mean and min Ollivier-Ricci curvature."""
+    orc = OllivierRicci(G, alpha=0.5)
+    orc.compute_ricci_curvature()
+    vals = [d['ricciCurvature'] for _, _, d in orc.G.edges(data=True)]
+    return {'mean': float(np.mean(vals)), 'min': float(np.min(vals))}
+
+
+def het31(cnf_path):
+    cnf = CNF(from_file=cnf_path)
+    solutions = sample_solutions(cnf, 500)
+    thr = adaptive_threshold(solutions)
+    valid = [s for s, r in solutions if r >= thr]
+    if len(valid) < 2:
+        return None
+    G = build_graph(valid)
+    if G is None:
+        return None
+    return curvature_stats(G)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python HET3.1.py <instance.cnf>")
+        sys.exit(1)
+    result = het31(sys.argv[1])
+    print("HET3.1:", result if result else "NaN")
